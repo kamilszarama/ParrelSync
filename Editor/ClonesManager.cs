@@ -287,6 +287,19 @@ namespace ParrelSync
                     break;
             }
         }
+        
+        public static void SyncPackages(string cloneProjectPath)
+        {
+            if (string.IsNullOrEmpty(cloneProjectPath)) return;
+
+            string sourceProjectPath = GetOriginalProjectPath();
+            if (cloneProjectPath == sourceProjectPath) return;
+
+            Project sourceProject = new Project(sourceProjectPath);
+            Project cloneProject = new Project(cloneProjectPath);
+
+            FileUtil.ReplaceDirectory(sourceProject.packagesPath, cloneProject.packagesPath);
+        }
 
         #endregion
 

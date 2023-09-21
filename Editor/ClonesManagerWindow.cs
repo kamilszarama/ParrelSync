@@ -170,6 +170,14 @@ namespace ParrelSync
 
                         GUILayout.EndHorizontal();
                         EditorGUI.EndDisabledGroup();
+                        
+                        GUILayout.BeginHorizontal();
+                        if (GUILayout.Button("Sync Packages Folder"))
+                        {
+                            ClonesManager.SyncPackages(cloneProjectPath);
+                        }
+
+                        GUILayout.EndHorizontal();
                         GUILayout.EndVertical();
 
                     }
